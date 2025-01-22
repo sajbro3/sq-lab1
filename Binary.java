@@ -35,39 +35,34 @@ public class Binary {
     public String getValue() {
         return this.number;
     }
-
-    public static Binary add(Binary num1, Binary num2) {
-        int ind1 = num1.number.length() - 1; 
-        int ind2 = num2.number.length() - 1; 
-        // Initial variable
-        int carry = 0; 
-        String num3 = ""; // the binary value of the sum
-
-        // Loop until all digits and carry are processed
-        while (ind1 >= 0 || ind2 >= 0 || carry != 0) {
-            int sum = carry; //previous carry
-
-            if (ind1 >= 0) {// if num1 has a digit to add
-                sum += (num1.number.charAt(ind1)=='1')? 1:0; // convert the digit to int and add it to sum
+/*Adding 2 binary numbers */
+    public static Binary add(Binary num1,Binary num2)
+	{
+		// the index of the first digit of each number
+		int ind1=num1.number.length()-1;
+		int ind2=num2.number.length()-1;
+		//initial variable
+		int carry=0;
+		String num3="";  // the binary value of the sum
+		while(ind1>=0 ||  ind2>=0 || carry!=0) // loop until all digits are processed
+		{
+			int sum=carry; // previous carry
+			if(ind1>=0){ // if num1 has a digit to add
+				sum += (num1.number.charAt(ind1)=='1')? 1:0; // convert the digit to int and add it to sum
 				ind1--; // update ind1
-            }
-
-            if(ind2>=0){ // if num2 has a digit to add
-                sum += (num2.number.charAt(ind2)=='1')? 1:0; // convert the digit to int and add it to sum
+			}
+			if(ind2>=0){ // if num2 has a digit to add
+				sum += (num2.number.charAt(ind2)=='1')? 1:0; // convert the digit to int and add it to sum
 				ind2--; //update ind2
-            }
-
-            carry=sum/2; // the new carry
+			}
+			carry=sum/2; // the new carry
 			sum=sum%2;  // the resultant digit
 			num3 =( (sum==0)? "0":"1")+num3; //convert sum to string and append it to num3
-        }
+		}
         return new Binary(num3); // Return the result as a Binary object
     }
 /**
-     * Performs a bitwise OR operation on two binary numbers.
-     *
-     * @param num1 The first binary number.
-     * @param num2 The second binary number.
+     * Performs OR operation on two binary numbers.
      * @return A Binary object representing the result of the OR operation.
      */
     public static Binary or(Binary num1, Binary num2) {
@@ -83,9 +78,7 @@ public class Binary {
         return new Binary(result.toString());
     }
     /**
-     * performs a bitwise AND operation on 2 binary numbers.
-     * @param num1 is the first binary number
-     * @param num2 is the second binary number
+     * performs AND operation on 2 binary numbers.
      * @return a binary object representing the result of the AND operation
      */
 
@@ -103,8 +96,6 @@ public class Binary {
     }
     /**
      * Multiples 2 binary numbers using repeated addition and bit shifting
-     * @param num1 is the first binary number
-     * @param num2 is the second binary number
      * @return a binary object representing product of num1 and num2
      */
 
@@ -119,6 +110,6 @@ public class Binary {
             }
         }
 
-        return result; //retrun 
+        return result; 
     }
 }
