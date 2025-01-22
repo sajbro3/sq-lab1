@@ -22,13 +22,16 @@ public class App
         System.out.println( "First binary number is "+binary1.getValue());
 		Binary binary2=new Binary("111000");
         System.out.println( "Second binary number is "+binary2.getValue());
-		
+
+	    //add function
 		Binary sum= Binary.add(binary1,binary2);
 		System.out.println( "Their summation is "+sum.getValue());
 
+	    //AND operation
 		Binary andResult = Binary.and(binary1,binary2);
 		System.out.println("AND result is: "+andResult.getValue());
 
+	    //OR operation
 		Binary orResult = Binary.or(binary1,binary2);
 		System.out.println("OR result is: "+orResult.getValue());
 }}
